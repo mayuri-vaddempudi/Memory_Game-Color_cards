@@ -49,27 +49,19 @@ function checkMatch() {
     const [card1, card2] = flippedCards;
 
     if (card1.dataset.color === card2.dataset.color) {
-        matchedPairs++;
         messageEl.textContent = 'Match found!';
+        matchedPairs++;
 
+        // Only trigger win if matchedPairs equals total
         if (matchedPairs === colors.length) {
             messageEl.textContent = '🎉 You Won!';
             wins++;
             winsEl.textContent = wins;
 
-            // Example win actions
-            document.body.style.backgroundColor = "#d4edda"; // green background
-            if (matchedPairs === colors.length) {
-                messageEl.textContent = '🎉 You Won!';
-                wins++;
-                winsEl.textContent = wins;
-
-                document.body.style.backgroundColor = "#d4edda"; // green background
-                showSparkles(50); // trigger sparkling effect
-                alert("Congratulations! You won the game!");
-            }
-
-            // Optional: play sound or show confetti if implemented
+            // Actions on winning
+            document.body.style.backgroundColor = "#d4edda";
+            showSparkles(50);
+            alert("Congratulations! You won the game!");
         }
 
     } else {
@@ -82,13 +74,15 @@ function checkMatch() {
 
     flippedCards = [];
 
-    // Check for loss
+    // Only check for loss if game is NOT won
     if (turns === 0 && matchedPairs !== colors.length) {
         messageEl.textContent = 'Game Over!';
         losses++;
         lossesEl.textContent = losses;
+        document.body.style.backgroundColor = "#f8d7da"; // optional red bg for loss
     }
 }
+
 
 function startGame() {
     flippedCards = [];

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fruit Memory Game</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header>
+        <h1>Fruit Memory Matching Game</h1>
+    </header>
+
+    <main>
+        <div class="game-info">
+            <p id="message">Click "Start Game" to begin!</p>
+            <p>Turns left: <span id="turns">0</span></p>
+            <p>Wins: <span id="wins">0</span> | Losses: <span id="losses">0</span></p>
+        </div>
+
+        <div class="controls">
+            <button id="startBtn" type="button">Start Game</button>
+            <button id="replayBtn" type="button">Replay</button>
+        </div>
+
+        <div id="game-board" class="game-board">
+            <!-- Cards will be inserted here -->
+        </div>
+        <div id="sparkle-container"></div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Mayuri's Fruit Memory Game. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

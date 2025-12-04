@@ -78,6 +78,9 @@ function checkMatch() {
     if (turns === 0 && matchedPairs !== colors.length) {
         messageEl.textContent = 'Game Over!';
         losses++;
+
+        // Actions on loose
+        alert("Sorry! Try again!");
         lossesEl.textContent = losses;
         document.body.style.backgroundColor = "#f8d7da"; // optional red bg for loss
     }

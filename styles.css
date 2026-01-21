@@ -81,6 +81,12 @@ button:hover {
     transform: rotateY(180deg);
 }
 
+.card.disabled {
+    pointer-events: none;
+    opacity: 0.6;
+
+}
+
 #sparkle-container {
     position: fixed;
     top: 0;

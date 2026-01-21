@@ -57,7 +57,7 @@ function checkMatch() {
             messageEl.textContent = '🎉 You Won!';
             wins++;
             winsEl.textContent = wins;
-
+            disableAllCards();
             // Actions on winning
             document.body.style.backgroundColor = "#d4edda";
             showSparkles(50);
@@ -73,12 +73,18 @@ function checkMatch() {
     }
 
     flippedCards = [];
+    function disableAllCards() {
+        document.querySelectorAll('.card').forEach(card => {
+            card.classList.add('disabled');
+        });
+    }
+
 
     // Only check for loss if game is NOT won
     if (turns === 0 && matchedPairs !== colors.length) {
         messageEl.textContent = 'Game Over!';
         losses++;
-
+        disableAllCards();
         // Actions on loose
         alert("Sorry! Try again!");
         lossesEl.textContent = losses;
@@ -94,6 +100,10 @@ function startGame() {
     turnsEl.textContent = turns;
     messageEl.textContent = 'Game started!';
     document.body.style.backgroundColor = "#d4edda"; // reset background
+    document.querySelectorAll('.card').forEach(card => {
+        card.classList.remove('disabled');
+    });
+
     createBoard();
 }
 function showSparkles(count = 30) {
